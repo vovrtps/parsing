@@ -21,6 +21,7 @@ for tr in table:
     for i in crypt:
         name = i.text
 
+
     current_capitalization = tr.find_all('div', class_='sc-500f568e-0 ejtlWy')
     for i in current_capitalization:
         current_capitalizations = i.text
@@ -38,8 +39,9 @@ for tr in table:
         result = [f'{name}  {current_capitalizations}  {market_percentage}%']
         list_s.append(result)
 
+
 with open('CoinMarketCap.csv', 'a', newline='', encoding='utf-8') as f:
-    recorder = csv.writer(f, delimiter=' ')
+    recorder = csv.writer(f, delimiter='\t')
     recorder.writerow([tim.strftime("%H:%M  %dd.%mm.%yy")])
     recorder.writerow(['Name' ' ' 'MC' ' ' 'MP'])
     recorder.writerows(list_s)
