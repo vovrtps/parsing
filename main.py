@@ -24,13 +24,16 @@ for tr in table:
     current_capitalization = tr.find_all('div', class_='sc-500f568e-0 ejtlWy')
     for i in current_capitalization:
         current_capitalizations = i.text
-        # print(clubs)
+
 
     current_capital = tr.find_all('span', class_='sc-7bc56c81-0 dCzASk')
     for i in current_capital:
         current_capitals = i.text
         current_capitals_pruning = re.findall(pruning, current_capitals)
-        market_percentage = f'{float(''.join(current_capitals_pruning)) * 100 / total_capitalization: .1f}'
+        for i in current_capitals_pruning:
+            dd = float(i)
+            market_percentage = f'{dd * 100 / total_capitalization: .1f}'
+            print(market_percentage)
 
         result = [f'{name}  {current_capitalizations}  {market_percentage}%']
         list_s.append(result)
