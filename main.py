@@ -22,7 +22,7 @@ for tr in table:
         name = i.text
 
 
-    current_capitalization = tr.find_all('div', class_='sc-500f568e-0 ejtlWy')
+    current_capitalization = tr.find_all('span', class_='sc-7bc56c81-1 bCdPBp')
     for i in current_capitalization:
         current_capitalizations = i.text
 
